@@ -1,0 +1,168 @@
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f8fafc;
+  color: #333;
+  padding: 40px 60px;
+}
+
+/* Main Heading Style (Student Dashboard) */
+
+
+/* Logout Button */
+button {
+  background-color: #1e40af;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #1e3a8a;
+}
+
+/* Section Title */
+h2 {
+  font-size: 1.6rem;
+  text-align: left;
+  margin: 30px 0 20px 0;
+  color: #1e3a8a;
+}
+
+/* Events Container */
+#events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* Event Card Styling */
+#events > div {
+  flex: 1 1 280px;
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+#events > div:hover {
+  transform: translateY(-6px);
+}
+
+/* Gradient color variations */
+#events > div:nth-child(4n+1) {
+  background: linear-gradient(to bottom right, #3b82f6, #06b6d4);
+}
+
+#events > div:nth-child(4n+2) {
+  background: linear-gradient(to bottom right, #10b981, #34d399);
+}
+
+#events > div:nth-child(4n+3) {
+  background: linear-gradient(to bottom right, #f59e0b, #fbbf24);
+}
+
+#events > div:nth-child(4n+4) {
+  background: linear-gradient(to bottom right, #ec4899, #f472b6);
+}
+
+/* Event Title */
+#events h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+/* Event Description & Date */
+#events p {
+  margin: 8px 0;
+}
+
+/* Register and Submit Buttons inside cards */
+#events button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#events button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Form inside event cards */
+form {
+  margin-top: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Submit Button */
+form button[type="submit"] {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+/* Header Section: Student Dashboard + Logout Button */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  padding: 25px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px;
+  color: white;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.header button {
+  background-color: #1e40af;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.header button:hover {
+  background-color: #1e3a8a;
+}

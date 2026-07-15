@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1> Event Administration</h1>
+    <div>
+      <button onclick="window.location.href='analytics.html'">View Analytics</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="create-event-section">
+      <button class="primary-btn" onclick="toggleForm()">+ Create New Event</button>
+      <div id="event-form" class="form-container hidden">
+        <form action="/faculty/create_event" method="POST" onsubmit="showNotification('Event created successfully!')">
+          <input type="text" name="title" placeholder="Event Title" required><br>
+          <textarea name="description" placeholder="Description" required></textarea><br>
+          <input type="date" name="date" required><br>
+          <button type="submit">Create</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="events-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+  <h2 style="margin: 0;">Events</h2>
+  <h2 id="total-registrations" style="margin: 0;">Total Registrations: <span>Loading...</span></h2>
+</div>
+
+      <div id="events" class="events-list"></div>
+    </section>
+  </main>
+
+  <script>
+    function formatDescription(text) {
+  const lines = text.split('\n');
+  let formatted = '';
+  lines.forEach(line => {
+    if (line.trim().startsWith('*') || line.trim().startsWith('-')) {
+      if (!formatted.endsWith('<ul>')) {
+        formatted += '<ul>';
+      }
+      formatted += `<li>${line.replace(/^(\*|-)\s*/, '')}</li>`;
+    } else {
+      if (formatted.endsWith('</ul>')) {
+        formatted += '</ul>';
+      }
+      formatted += `<p>${line}</p>`;
+    }
+  });
+  if (formatted.includes('<ul>') && !formatted.endsWith('</ul>')) {
+    formatted += '</ul>';
+  }
+  return formatted;
+}
+
+    const eventData = {}; // Stores event details safely
+
+    function logout() {
+      window.location.href = "index.html";
+    }
+
+    function toggleForm() {
+      const form = document.getElementById('event-form');
+      form.classList.toggle('hidden');
+    }
+
+    function showNotification(msg) {
+      alert(msg);
+    }
+
+    function deleteEvent(id) {
+      if (confirm("Are you sure you want to delete this event?")) {
+        fetch(`/faculty/event/${id}`, { method: 'DELETE' })
+          .then(() => location.reload());
+      }
+    }
+
+    function openEditModal(id) {
+      const event = eventData[id];
+      const newTitle = prompt("Edit Title", event.title);
+      const newDesc = prompt("Edit Description", event.description);
+      const newDate = prompt("Edit Date", event.date);
+
+      if (newTitle && newDesc && newDate) {
+        fetch(`/faculty/event/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title: newTitle, description: newDesc, date: newDate })
+        }).then(() => location.reload());
+      }
+    }
+
+    // Fetch and render events
+    fetch('/faculty/events')
+      .then(res => res.json())
+      .then(events => {
+        const container = document.getElementById('events');
+        if (events.length === 0) {
+          container.innerHTML = "<p>No events created yet.</p>";
+        } else {
+          events.forEach(event => {
+            eventData[event._id] = {
+              title: event.title,
+              description: event.description,
+              date: event.date
+            };
+
+            const div = document.createElement('div');
+            div.className = 'card';
+            div.innerHTML = `
+              <h3>${event.title}</h3>
+              <p>${formatDescription(event.description)}</p>
+
+              <p><strong>Date:</strong> ${event.date}</p>
+              <button onclick="deleteEvent('${event._id}')">Delete</button>
+              <button onclick="openEditModal('${event._id}')">Edit</button>
+              <a href="view_registrations.html?eventId=${event._id}">
+                <button>View Registrations</button>
+              </a>
+            `;
+            container.appendChild(div);
+          });
+        }
+      });
+      
+  fetch('/faculty/total-registrations')
+    .then(res => res.json())
+    .then(data => {
+      document.querySelector('#total-registrations span').textContent = data.total;
+    })
+    .catch(err => {
+      console.error('Error fetching total registrations:', err);
+      document.querySelector('#total-registrations span').textContent = 'Error';
+    });
+
+
+  </script>
+</body>
+</html>

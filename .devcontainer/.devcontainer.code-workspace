@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../.github"
+		},
+		{
+			"path": "../__pycache__"
+		},
+		{
+			"path": "../assets"
+		},
+		{
+			"path": "../config"
+		},
+		{
+			"path": "../dashboard"
+		},
+		{
+			"path": "../feedback"
+		},
+		{
+			"path": "../jobs"
+		},
+		{
+			"path": "../poppler"
+		},
+		{
+			"path": "../resume_analytics"
+		},
+		{
+			"path": "../style"
+		},
+		{
+			"path": "../utils"
+		}
+	]
+}

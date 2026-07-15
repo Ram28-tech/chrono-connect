@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+<link rel="stylesheet" href="styles3.css">
+
+  <title>View Registrations</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+   
+  <!-- Replace the existing <h1> and div with this: -->
+<div class="header">
+  <h1>Registrations</h1>
+  <div style="display: flex; align-items: center; gap: 20px;">
+    <span id="registrationCount"></span>
+    <a href="faculty_dashboard.html"><button class="back-btn">← Back to Dashboard</button></a>
+  </div>
+</div>
+
+  <div id="registrations"></div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+const eventId = urlParams.get('eventId');
+
+fetch(`/faculty/registrations/${eventId}`)
+  .then(res => res.json())
+  .then(registrations => {
+    const container = document.getElementById('registrations');
+    const countSpan = document.getElementById('registrationCount');
+    countSpan.textContent = `Number of Registrations: ${registrations.length}`;
+
+    if (registrations.length === 0) {
+      container.innerHTML = '<p>No registrations yet.</p>';
+    } else {
+      registrations.forEach(reg => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+          <p><strong>Name:</strong> ${reg.studentName}</p>
+          <p><strong>Email:</strong> ${reg.email}</p>
+          <p><strong>Phone:</strong> ${reg.phone}</p>
+          <p><strong>Year:</strong> ${reg.year}</p>
+          <p><strong>Branch:</strong> ${reg.branch}</p>
+          <hr>
+        `;
+        container.appendChild(div);
+      });
+    }
+  })
+  .catch(err => {
+    console.error('Error fetching registrations:', err);
+  });
+
+    function deleteRegistration(id) {
+      if (confirm("Are you sure you want to delete this registration?")) {
+        fetch(`/faculty/registration/${id}`, {
+          method: 'DELETE'
+        })
+        .then(res => {
+          if (res.ok) {
+            alert("Registration deleted successfully.");
+            loadRegistrations(); // reload data
+          } else {
+            alert("Error deleting registration.");
+          }
+        });
+      }
+    }
+
+    // Load registrations on page load
+    loadRegistrations();
+    
+  </script>
+</body>
+</html>

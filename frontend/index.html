@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chrono Connect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #f0f2f5, #d9e4f5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 3rem;
+      color: #3e2f5b;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-buttons {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .login-buttons a {
+      padding: 1.5rem 3rem;
+      font-size: 1.5rem;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .login-buttons a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-buttons a span {
+      margin-left: 10px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chrono Connect</h1>
+  <div class="login-buttons">
+    <a href="faculty_login.html">👨‍🏫 Faculty Login</a>
+    <a href="student_login.html">🎓 Student Login</a>
+  </div>
+</body>
+</html>
