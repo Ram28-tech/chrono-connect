@@ -115,6 +115,7 @@ http://localhost:5000
   <img src="screenshots/Event Analytics.png" alt="Event Analytics" width="45%">
   <img src="screenshots/Event Analytics-2.png" alt="Event Analytics 2" width="45%">
 </p>
+
 ---
 
 ## 🔮 Future Enhancements
