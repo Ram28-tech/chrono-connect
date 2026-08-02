@@ -17,7 +17,7 @@ flowchart TD
     D --> E[View Available Events]
     E --> F[Register for Event]
     F --> G[Faculty Views Registered Students]
-
+```
 ---
 
 ## ✨ Features
