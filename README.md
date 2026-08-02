@@ -7,7 +7,22 @@ Chrono Connect is a web-based Event Management System developed for colleges. It
 The system simplifies event organization by maintaining event details and participant registrations in a centralized database.
 
 ---
+## 🔄 Workflow
 
+Faculty Login
+        ↓
+Create Event
+        ↓
+Event Stored in MongoDB
+        ↓
+Student Login
+        ↓
+View Events
+        ↓
+Register
+        ↓
+Faculty Views Registrations
+---
 ## ✨ Features
 
 ### Faculty Module
@@ -40,23 +55,7 @@ The system simplifies event organization by maintaining event details and partic
 
 ---
 
-## 📂 Project Structure
 
-```
-Chrono Connect
-│
-├── models/
-├── routes/
-├── public/
-├── controllers/
-├── package.json
-├── package-lock.json
-├── server.js
-├── README.md
-└── .gitignore
-```
-
----
 
 ## 🚀 Installation
 
@@ -92,14 +91,7 @@ http://localhost:5000
 
 ---
 
-## 💻 Technologies Used
 
-- Node.js
-- Express.js
-- MongoDB
-- HTML
-- CSS
-- JavaScript
 
 ---
 
