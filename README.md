@@ -9,19 +9,14 @@ The system simplifies event organization by maintaining event details and partic
 ---
 ## 🔄 Workflow
 
-Faculty Login
-        ↓
-Create Event
-        ↓
-Event Stored in MongoDB
-        ↓
-Student Login
-        ↓
-View Events
-        ↓
-Register
-        ↓
-Faculty Views Registrations
+```mermaid
+flowchart TD
+    A[Faculty Login] --> B[Create Event]
+    B --> C[Store Event in MongoDB]
+    C --> D[Student Login]
+    D --> E[View Available Events]
+    E --> F[Register for Event]
+    F --> G[Faculty Views Registered Students]
 
 ---
 
