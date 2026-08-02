@@ -105,16 +105,22 @@ http://localhost:5000
 
 ## 📸 Screenshots
 
-*(Add screenshots here after uploading them.)*
+## 📸 Screenshots
 
-Example:
+<p align="center">
+  <img src="screenshots/Login Page.png" alt="Login Page" width="45%">
+  <img src="screenshots/Faculty Dashboard.png" alt="Faculty Dashboard" width="45%">
+</p>
 
-- Login Page
-- Faculty Dashboard
-- Student Dashboard
-- Event Registration
-- Registered Students Page
+<p align="center">
+  <img src="screenshots/Student Dashboard.png" alt="Student Dashboard" width="45%">
+  <img src="screenshots/Registered Students.png" alt="Registered Students" width="45%">
+</p>
 
+<p align="center">
+  <img src="screenshots/Event Analytics.png" alt="Event Analytics" width="45%">
+  <img src="screenshots/Event Analytics-2.png" alt="Event Analytics 2" width="45%">
+</p>
 ---
 
 ## 🔮 Future Enhancements
