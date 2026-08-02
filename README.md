@@ -1,5 +1,5 @@
 # Chrono Connect
-
+### A Web-Based College Event Management System
 ## 📌 Overview
 
 Chrono Connect is a web-based Event Management System developed for colleges. It enables faculty members to create and manage events, while students can browse available events and register for them online.
