@@ -22,7 +22,9 @@ View Events
 Register
         ↓
 Faculty Views Registrations
+
 ---
+
 ## ✨ Features
 
 ### Faculty Module
@@ -97,7 +99,7 @@ http://localhost:5000
 
 ## 📸 Screenshots
 
-## 📸 Screenshots
+
 
 <p align="center">
   <img src="screenshots/Login Page.png" alt="Login Page" width="45%">
